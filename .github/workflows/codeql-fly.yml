@@ -1,7 +1,8 @@
-name: "CodeQL-Fly solution-2"
+name: "CodeQL-Fly"
 
 on:
-  workflow_dispatch:
+  release:
+    types: [ published ]
 
 jobs:
   analyze:
