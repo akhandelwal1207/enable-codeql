@@ -49,13 +49,14 @@ jobs:
         # If you are analyzing a compiled language, you can modify the 'build-mode' for that language to customize how
         # your codebase is analyzed, see https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
     steps:
-    - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.analysis_ref }}
           fetch-depth: 0
 
-      - if: ${{ github.event.inputs.commit_sha != '' }}
+      - name: Checkout specific commit (if provided)
+        if: ${{ github.event.inputs.commit_sha != '' }}
         run: git checkout ${{ github.event.inputs.commit_sha }}
 
     # Add any setup steps before running the `github/codeql-action/init` action.
