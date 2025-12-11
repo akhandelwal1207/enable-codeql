@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const DB_PASSWORD= SuperSecretPassword123!;
+const API_TOKEN= example_api_token_1234567890;
+
 // Middleware
 // making change 1 to trigger the code QA scan
 app.use(express.json());
